@@ -4,25 +4,25 @@ from src.utils import load_model, apply_skill, apply_skills, convert_newlines
 from src.prompts import insert
 
 
-st.set_page_config(page_title="Prompt Enhancer", page_icon=":rocket:", initial_sidebar_state="collapsed", layout="wide")
-st.title(":rocket: Prompt Enhancer")
+st.set_page_config(page_title="Prompt Enhancer - Deepseek", page_icon=":rocket:", initial_sidebar_state="collapsed", layout="wide")
+st.title(":rocket: Prompt Enhancer - Powered by Deepseek")
 st.markdown("""
-##### Prompt Engineering at Your Fingertips!
+##### Prompt Engineering at Your Fingertips with Deepseek AI!
 """)
 st.text("")
 st.text("")
 
 
-with st.popover("**:blue[Enter your OpenAI API key]**"):
-    OPENAI_API_KEY = st.text_input("OpenAI API key", type="password")
-    os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY 
+with st.popover("**:blue[Enter your Deepseek API key]**"):
+    DEEPSEEK_API_KEY = st.text_input("Deepseek API key", type="password")
+    os.environ["DEEPSEEK_API_KEY"] = DEEPSEEK_API_KEY 
     st.info("""
-    You can get your OpenAI API key [here](https://platform.openai.com/api-keys)
+    You can get your Deepseek API key [here](https://platform.deepseek.com/api_keys)
     """)
 
 temp, buff = st.columns([0.3, 0.7]) 
-if not OPENAI_API_KEY:
-    temp.error("**Please enter your OpenAI API key**") 
+if not DEEPSEEK_API_KEY:
+    temp.error("**Please enter your Deepseek API key**") 
 st.text("")
 st.text("")
 
@@ -121,14 +121,14 @@ with col2:
     st.text("")
 
     model_name = st.selectbox("**Select the model**", 
-                              ("gpt-4o", "chatgpt-4o-latest", "gpt-4o-mini", "gpt-4-turbo", "gpt-4-0125-preview"), 
+                              ("deepseek-chat", "deepseek-coder", "deepseek-reasoner"), 
                               index=0, 
                               placeholder="Select the model...")
 
     st.text("") 
 
     lang_eng = st.checkbox("**Provide the enhanced prompt in English.** (If the original input is in another language but you need the prompt in English.)")
-    simplified = st.checkbox("**Enhance the prompt with simplified instructions that save processing time and tokens.** (Best results with GPT-4 models)")
+    simplified = st.checkbox("**Enhance the prompt with simplified instructions that save processing time and tokens.** (Best results with Deepseek models)")
     st.text("")
     st.text("")
     enhance_btn = st.button("**:blue[Enhance!]**")
@@ -136,8 +136,8 @@ with col2:
     if enhance_btn:
         if not prompt:
             st.toast("Please enter your prompt.")
-        if not OPENAI_API_KEY:
-            st.toast("Please enter your OpenAI API Key.")
+        if not DEEPSEEK_API_KEY:
+            st.toast("Please enter your Deepseek API Key.")
 
         order_num = 1
         with st.spinner("Processing..."): 

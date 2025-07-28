@@ -6,8 +6,12 @@ from src.prompts import templates
 
 
 def load_model(model_name):
-    OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
-    llm = ChatOpenAI(api_key=OPENAI_API_KEY, model_name=model_name)
+    DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY")
+    llm = ChatOpenAI(
+        api_key=DEEPSEEK_API_KEY, 
+        model_name=model_name,
+        base_url="https://api.deepseek.com/v1"
+    )
     return llm 
 
 

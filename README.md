@@ -20,8 +20,8 @@ Welcome to Prompt Enhancer, a streamlit-powered application designed to improve 
    ```
    pip install -r requirements.txt
    ```
-3. **Get OpenAI API key**:
-   You can get your OpenAI API key [here](https://platform.openai.com/api-keys)
+3. **Get Deepseek API key**:
+   You can get your Deepseek API key [here](https://platform.deepseek.com/api_keys)
 4. **Run Prompt Enhancer**:
    ```
    streamlit run main.py
@@ -46,7 +46,7 @@ Additionally, the tool offers users the option to incorporate emotional prompts 
 
 1. **Streamlit**: Creates an intuitive user interface for an engaging user experience.
 2. **LangChain**: Seamlessly integrates large language models into the application.
-3. **OpenAI API**: Connects to the OpenAI models to provide real-time prompt enhancement.
+3. **Deepseek API**: Connects to the Deepseek models to provide real-time prompt enhancement.
 
 
 ## For Feedback
